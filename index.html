@@ -1,11 +1,118 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>class test</title>
+    <style>
+        
+
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#667eea,#764ba2);
+    display:flex;
+    justify-content: center;
+    height:100vh;
+}
+
+form{
+    background:white;
+    padding:30px 40px;
+    border-radius:12px;
+    box-shadow:0 15px 30px rgba(0,0,0,0.2);
+    width:400px;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+}
+
+h1{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+
+
+
+
+textarea{
+    width:100%;
+    padding:8px;
+    margin-top:5px;
+    border:1px solid #ccc;
+    border-radius:6px;
+    font-size:14px;
+}
+
+
+
+
+
+
+@media(max-width:500px){
+    form{
+        width:90%;
+        padding:20px;
+    }
+}
+
+</style>
+
+    </style>
 </head>
 <body>
-    <h1>class test</h1>
+    <center>
+    <form method="get" name="feedback_form" action="./response.html" target="_blank">
+        <h1 align="center"> Feedback Form</h1>
+        <fieldset>
+            <label for="name" >Full Name:</label>
+            <input id="name" type="text" name="name" placeholder="Enter your full name" required>
+            <br><br>
+            <label for="email" >Email:</label>
+            <input name="email" id="email" type="email" placeholder="Enter valid email address" required>
+            <br><br>
+            <label for ="pass">Password:</label>
+            <input id="pass" type="password" name="password" placeholder="Enter password"required>
+            <br><br>
+            <label for="rating">Rating:</label>
+            <input type="radio" id="rating5" name="rating" value="5">
+            <label for="rating5">5</label>
+            <input type="radio" id="rating4" name="rating" value="4">
+            <label for="rating4">4</label>
+            <input type="radio" id="rating3" name="rating" value="3">
+            <label for="rating3">3</label>
+            <input type="radio" id="rating2" name="rating" value="2">
+            <label for="rating2">2</label>
+            <input type="radio" id="rating1" name="rating" value="1">
+            <label for="rating1">1</label>
+            <BR><BR>
+            <label id="exeprience">Experience:</label>
+            <select name="select" id="select">
+            
+            
+            <option value="excellent">Excellent</option>
+            <option value="good">Good</option>
+            <option value="average">Average</option>
+            <option value="poor">Poor</option>
+            </select>
+            <br><br>
+            <label for="tel">Contact No:</label>
+            <input type="tel" name="contact" id="tel" placeholder="Enter phone number">
+            <br><br>
+            <label for="add">Address</label>
+            <br>
+            <textarea name="feedback" id="add" rows="4" cols="45" placeholder="Enter your feedback"></textarea>
+            <br><br>
+            <input type="submit" value="Submit">
+            <input type="reset" value="Clear">
+        </fieldset>
+    </form>
+  
+        <p>&copy; feedback form</p>
+    </center>
+    
 </body>
 </html>
+
