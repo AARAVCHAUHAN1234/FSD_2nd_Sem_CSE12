@@ -4,26 +4,21 @@ let input = document.getElementById("userInput");
 
 let fontSize = 16;
 
-// Change heading text (onclick using addEventListener)
 document.getElementById("changeTextBtn").addEventListener("click", function () {
     if (input.value !== "") {
         heading.innerHTML = input.value;
     }
 });
 
-// Change background color
 document.getElementById("bgColorBtn").onclick = function () {
-    document.body.style.backgroundColor ="red";
-       
+    document.body.style.backgroundColor = "red";
 };
 
-// Increase font size
 document.getElementById("fontSizeBtn").addEventListener("click", function () {
     fontSize += 2;
     paragraph.style.fontSize = fontSize + "px";
 });
 
-// Show/Hide paragraph
 document.getElementById("toggleBtn").addEventListener("click", function () {
     if (paragraph.style.display === "none") {
         paragraph.style.display = "block";
@@ -32,7 +27,6 @@ document.getElementById("toggleBtn").addEventListener("click", function () {
     }
 });
 
-// Reset page
 document.getElementById("resetBtn").addEventListener("click", function () {
     heading.innerHTML = "Welcome to JavaScript Lab";
     paragraph.style.display = "block";
