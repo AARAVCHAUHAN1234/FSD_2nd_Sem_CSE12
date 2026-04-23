@@ -74,6 +74,29 @@
 // let obj={name:"aarav",age:12};
 // console.log(obj.age);
 
-let arr=[1,2,"aarav",4];
+// let arr=[1,2,"aarav",4];
 
-    console.log(arr);
+//     console.log(arr);
+
+let add=(a,b)=>a+b;
+console.log(add(2,3));
+
+let multiply=(a,b)=>a*b;
+console.log(multiply );
+let multiply=function(a,b){
+    return (a*b);
+}
+console.log(multiply);
+
+function multiply (a,b){
+    return a*b;
+}
+console.log(multiply(2,3));
+
+let square=x =>x*x;
+console.log(square(4));
+const greetUser=(name)=>
+{
+    console.log(`hello, ${name}!`);
+}
+greetUser("alice");

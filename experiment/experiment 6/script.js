@@ -1,37 +1,69 @@
-let heading = document.getElementById("mainHeading");
-let paragraph = document.getElementById("paragraph");
-let input = document.getElementById("userInput");
+// let heading = document.getElementById("mainHeading");
+// let paragraph = document.getElementById("paragraph");
+// let input = document.getElementById("userInput");
 
-let fontSize = 16;
+// let fontSize = 16;
 
-document.getElementById("changeTextBtn").addEventListener("click", function () {
-    if (input.value !== "") {
-        heading.innerHTML = input.value;
-    }
+// document.getElementById("changeTextBtn").addEventListener("click", function () {
+//     if (input.value !== "") {
+//         heading.innerHTML = input.value;
+//     }
+// });
+
+// document.getElementById("bgColorBtn").onclick = function () {
+//     document.body.style.backgroundColor = "red";
+// };
+
+// document.getElementById("fontSizeBtn").addEventListener("click", function () {
+//     fontSize += 2;
+//     paragraph.style.fontSize = fontSize + "px";
+// });
+
+// document.getElementById("toggleBtn").addEventListener("click", function () {
+//     if (paragraph.style.display === "none") {
+//         paragraph.style.display = "block";
+//     } else {
+//         paragraph.style.display = "none";
+//     }
+// });
+
+// document.getElementById("resetBtn").addEventListener("click", function () {
+//     heading.innerHTML = "Welcome to JavaScript Lab";
+//     paragraph.style.display = "block";
+//     paragraph.style.fontSize = "16px";
+//     document.body.style.backgroundColor = "#f4f4f4";
+//     input.value = "";
+//     fontSize = 16;
+// });
+let heading=document.getElementById("heading");
+let input=document.getElementById("inputText");
+let para=document.getElementById("changeTextBtn");
+document.getElementById("changeTextBtn").onclick=function(){
+    //innerText changes teh text of heading....
+    heading.innerText=input.value;
+};
+//input change event;
+//onchange runs user changes input and click 
+input.onchange=function(){
+    console.log("input changed",input.value);
+};
+let bg=document.getElementById("changeBackgroundBtn");
+addEventListener("click",function(){
+    document.body.style.backgroundColor="lightblue";
+    document.body.style.fontSize="40px";
 });
+// let te=document.getElementById("para");
+document.getElementById("resetBtn");
+let isVisible=true;
+document.getElementById("toggleParaBtn").onclick=function(){
+    if(isvisible)
 
-document.getElementById("bgColorBtn").onclick = function () {
-    document.body.style.backgroundColor = "red";
+}
+heading.onmouseover=function(){
+    heading.style.color="Red";
 };
 
-document.getElementById("fontSizeBtn").addEventListener("click", function () {
-    fontSize += 2;
-    paragraph.style.fontSize = fontSize + "px";
-});
 
-document.getElementById("toggleBtn").addEventListener("click", function () {
-    if (paragraph.style.display === "none") {
-        paragraph.style.display = "block";
-    } else {
-        paragraph.style.display = "none";
-    }
-});
+let colors = [11,12,13,21,22,23,31,33,32];
+console.log(getRandomElement(colors));
 
-document.getElementById("resetBtn").addEventListener("click", function () {
-    heading.innerHTML = "Welcome to JavaScript Lab";
-    paragraph.style.display = "block";
-    paragraph.style.fontSize = "16px";
-    document.body.style.backgroundColor = "#f4f4f4";
-    input.value = "";
-    fontSize = 16;
-});
