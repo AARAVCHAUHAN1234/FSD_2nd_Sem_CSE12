@@ -45,7 +45,7 @@
       margin-bottom: 20px;
     }
     .card h3 {
-      color: #0d6efd;
+      color: black;
     }
     footer {
       background-color: #343a40;
@@ -74,7 +74,6 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <!-- Nav Links -->
       <div class="collapse navbar-collapse" id="navbarMenu">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
@@ -88,26 +87,38 @@
   <section class="content-section">
     <div class="container">
       <h2 class="text-center mb-4 fw-bold">Our Content</h2>
-      <div class="row">
-        <!-- Column 1: Full width on small, half width on medium+ -->
-        <div class="col-12 col-md-6">
-          <div class="card">
-            <h3>About Us</h3>
-            <p>
-              Welcome to our website. We are a passionate team of developers
-              dedicated to building beautiful, responsive, and accessible
-              web experiences for users across all devices and screen sizes.
-            </p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6">
-          <div class="card">
-            <h3>Our Services</h3>
-            <p>This is the second column. Bootstrap grid system helps us to create responsive layout.</p>
-          </div>
-        </div>
-      </div>
+      <div class="row align-items-center">
+
+  <div class="col-12 col-md-5">
+    <div class="card">
+      <h3>Column 1</h3>
+      <p>
+        This is the first column. On small devices the column occupies
+        full width, while on medium and large devices it occupies half
+        width using bootstrap grid.
+      </p>
     </div>
+  </div>
+
+  <!-- Vertical Line -->
+  <div class="col-md-1 d-none d-md-flex justify-content-center">
+    <div
+      class="vr"
+      style="height: 200px; width: 2px; background-color: black;"
+    ></div>
+  </div>
+
+  <div class="col-12 col-md-5">
+    <div class="card">
+      <h3>Column 2</h3>
+      <p>
+        This is the second column. Bootstrap grid system helps to create
+        responsive layout.
+      </p>
+    </div>
+  </div>
+
+</div>
   </section>
   <footer>
     <div class="container">
