@@ -1,6 +1,11 @@
-import {useState} from "react";
-function Gamestart(){
-  const[score,setScore]=useState(0);
+// 
+import React, { useState } from "react";
+
+function App() {
+  // Step 3: Create state variable
+  const [count, setCount] = useState(0);
+
+  // Step 6: Event handlers
   const increment = () => {
     setCount(count + 1);
   };
@@ -12,14 +17,26 @@ function Gamestart(){
   const reset = () => {
     setCount(0);
   };
+
   return (
-    <div>
-      <h1>Current Score:{score}</h1>
-      <button onClick={()=>setScore(Score+1)}>Score a point</button>
+    <div style={{ textAlign: "center", marginTop: "50px" }}>
+      <h1>Counter Application</h1>
+
+      {/* Step 4: Display counter value */}
+      <h2>Count: {count}</h2>
+
+      {/* Step 5: Buttons */}
       <button onClick={increment}>Increment</button>
 
+      <button onClick={decrement} style={{ marginLeft: "10px" }}>
+        Decrement
+      </button>
 
+      <button onClick={reset} style={{ marginLeft: "10px" }}>
+        Reset
+      </button>
     </div>
   );
 }
-export default GameScore;
+
+export default App;

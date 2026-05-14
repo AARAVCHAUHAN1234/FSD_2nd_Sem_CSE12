@@ -56,7 +56,7 @@ addEventListener("click",function(){
 document.getElementById("resetBtn");
 let isVisible=true;
 document.getElementById("toggleParaBtn").onclick=function(){
-    if(isvisible)
+    if(isvisible);
 
 }
 heading.onmouseover=function(){
