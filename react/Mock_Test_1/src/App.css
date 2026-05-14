@@ -1,12 +1,4 @@
-/* .container{
-  background-color: rgb(196, 196, 196);
-        padding: 20px;
-}
-.heading{
-  color: darkblue;
-          font-Size: 30px;
-}
-.counter {
+/* .counter {
   font-size: 16px;
   padding: 5px 10px;
   border-radius: 5px;
@@ -189,5 +181,7 @@
     right: 0;
     border-right-color: var(--border);
   }
-
 } */
+body{
+  background-color: gray;
+}
