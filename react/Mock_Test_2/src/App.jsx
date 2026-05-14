@@ -23,7 +23,6 @@ function App() {
         }}
       >
         <h2>STUDENT CARD</h2>
-
         <img
           src={pic}
           alt="student"
