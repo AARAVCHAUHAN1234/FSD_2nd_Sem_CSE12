@@ -27,6 +27,7 @@
 //     }
 // });
 
+
 // document.getElementById("resetBtn").addEventListener("click", function () {
 //     heading.innerHTML = "Welcome to JavaScript Lab";
 //     paragraph.style.display = "block";
