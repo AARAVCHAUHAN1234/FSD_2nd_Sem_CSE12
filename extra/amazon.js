@@ -1,277 +1,147 @@
-// ===============================
-// HERO IMAGE SLIDER
-// ===============================
+document.addEventListener("DOMContentLoaded", () => {
 
-const heroImages = document.querySelectorAll(".hero img");
+  // 1. BACKDROP IMAGE ROTATION TRANSITIONS
+  const backdropImages = document.querySelectorAll(".hero img");
+  let runningBackdropIndex = 0;
 
-let currentHero = 0;
-
-function showHeroSlide(index) {
-  heroImages.forEach((img, i) => {
-    img.style.opacity = i === index ? "1" : "0";
-  });
-}
-
-function nextHeroSlide() {
-  currentHero++;
-  
-  if (currentHero >= heroImages.length) {
-    currentHero = 0;
-  }
-
-  showHeroSlide(currentHero);
-}
-
-showHeroSlide(currentHero);
-
-setInterval(nextHeroSlide, 3000);
-
-
-// ===============================
-// ADD TO CART FUNCTIONALITY
-// ===============================
-
-let cartCount = 0;
-
-const cartElement = document.querySelector(".cart b");
-
-const addToCartButtons = document.querySelectorAll(".add-to-cart");
-
-addToCartButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    cartCount++;
-
-    cartElement.textContent = `Cart (${cartCount})`;
-
-    button.textContent = "Added ✓";
-
-    button.style.background =
-      "linear-gradient(180deg, #4caf50 0%, #2e7d32 100%)";
-
-    setTimeout(() => {
-      button.textContent = "Add to cart";
-
-      button.style.background =
-        "linear-gradient(180deg, #f7ca00 0%, #f08804 100%)";
-    }, 1500);
-  });
-});
-
-
-// ===============================
-// SEARCH FUNCTIONALITY
-// ===============================
-
-const searchInput = document.querySelector(".search-bar input");
-
-const shopCards = document.querySelectorAll(".shop-card");
-
-searchInput.addEventListener("keyup", () => {
-  const searchValue = searchInput.value.toLowerCase();
-
-  shopCards.forEach((card) => {
-    const text = card.innerText.toLowerCase();
-
-    if (text.includes(searchValue)) {
-      card.style.display = "block";
-    } else {
-      card.style.display = "none";
+  if (backdropImages.length > 0) {
+    function rotateBackdrop() {
+      backdropImages.forEach((image, i) => {
+        image.style.opacity = i === runningBackdropIndex ? "1" : "0";
+      });
+      runningBackdropIndex = (runningBackdropIndex + 1) % backdropImages.length;
     }
-  });
-});
-
-
-// ===============================
-// SIDEBAR CLOSE ON OUTSIDE CLICK
-// ===============================
-
-const menuToggle = document.getElementById("menu-toggle");
-
-const overlay = document.querySelector(".overlay");
-
-overlay.addEventListener("click", () => {
-  menuToggle.checked = false;
-});
-
-
-// ===============================
-// HORIZONTAL SLIDER SCROLL
-// ===============================
-
-const sliders = document.querySelectorAll(".recommend-slider");
-
-sliders.forEach((slider) => {
-  let isDown = false;
-  let startX;
-  let scrollLeft;
-
-  slider.addEventListener("mousedown", (e) => {
-    isDown = true;
-
-    slider.classList.add("active");
-
-    startX = e.pageX - slider.offsetLeft;
-
-    scrollLeft = slider.scrollLeft;
-  });
-
-  slider.addEventListener("mouseleave", () => {
-    isDown = false;
-  });
-
-  slider.addEventListener("mouseup", () => {
-    isDown = false;
-  });
-
-  slider.addEventListener("mousemove", (e) => {
-    if (!isDown) return;
-
-    e.preventDefault();
-
-    const x = e.pageX - slider.offsetLeft;
-
-    const walk = (x - startX) * 2;
-
-    slider.scrollLeft = scrollLeft - walk;
-  });
-});
-
-
-// ===============================
-// SMOOTH HOVER EFFECTS
-// ===============================
-
-const cards = document.querySelectorAll(".shop-card");
-
-cards.forEach((card) => {
-  card.addEventListener("mouseenter", () => {
-    card.style.transform = "translateY(-8px)";
-  });
-
-  card.addEventListener("mouseleave", () => {
-    card.style.transform = "translateY(0)";
-  });
-});
-
-
-// ===============================
-// FAKE AMAZON LOADING EFFECT
-// ===============================
-
-window.addEventListener("load", () => {
-  document.body.style.opacity = "1";
-});
-
-document.body.style.opacity = "0";
-document.body.style.transition = "opacity 0.5s ease";
-
-
-// ===============================
-// BACK TO TOP BUTTON
-// ===============================
-
-const backToTop = document.querySelector(".back-to-top");
-
-backToTop.addEventListener("click", () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
-});
-
-
-// ===============================
-// LANGUAGE CHANGE DEMO
-// ===============================
-
-const languageSelect = document.querySelector(".lang");
-
-languageSelect.addEventListener("change", () => {
-  if (languageSelect.value === "हिंदी") {
-    alert("हिंदी भाषा चुनी गई");
-  } else {
-    alert("English Selected");
-  }
-});
-
-
-// ===============================
-// PRODUCT IMAGE CLICK EFFECT
-// ===============================
-
-const recommendItems = document.querySelectorAll(".recommend-item img");
-
-recommendItems.forEach((img) => {
-  img.addEventListener("click", () => {
-    img.style.transform = "scale(1.2)";
-
-    setTimeout(() => {
-      img.style.transform = "scale(1)";
-    }, 300);
-  });
-});
-
-
-// ===============================
-// DYNAMIC CURRENT YEAR
-// ===============================
-
-const footerCopy = document.querySelector(".footer-copy p");
-
-const year = new Date().getFullYear();
-
-footerCopy.innerHTML = `
-Conditions of Use & Sale | Privacy Notice | Interest-Based Ads
-<br>
-© 1996–${year}, Amazon.com, Inc. or its affiliates
-`;
-
-
-// ===============================
-// SEARCH BUTTON CLICK
-// ===============================
-
-const searchButton = document.querySelector(".search-bar button");
-
-searchButton.addEventListener("click", () => {
-  const value = searchInput.value.trim();
-
-  if (value === "") {
-    alert("Please enter something to search");
-  } else {
-    alert(`Searching for "${value}"`);
-  }
-});
-
-
-// ===============================
-// ENTER KEY SEARCH
-// ===============================
-
-searchInput.addEventListener("keypress", (e) => {
-  if (e.key === "Enter") {
-    searchButton.click();
-  }
-});
-
-
-// ===============================
-// AUTO HIDE NAVBAR ON SCROLL
-// ===============================
-
-let lastScrollTop = 0;
-
-const navbar = document.querySelector(".navbar");
-
-window.addEventListener("scroll", () => {
-  let scrollTop =
-    window.pageYOffset || document.documentElement.scrollTop;
-
-  if (scrollTop > lastScrollTop) {
-    navbar.style.top = "-100px";
-  } else {
-    navbar.style.top = "0";
+    rotateBackdrop();
+    setInterval(rotateBackdrop, 5000);
   }
 
-  lastScrollTop = scrollTop;
+  // 2. TRANSACTION RETAIL ITEM METRIC REGISTER
+  let activeCartTotal = 0;
+  const numericCartTarget = document.getElementById("cart-count");
+  const interfacePurchaseButtons = document.querySelectorAll(".add-to-cart-btn");
+
+  interfacePurchaseButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      activeCartTotal++;
+      if (numericCartTarget) {
+        numericCartTarget.textContent = activeCartTotal;
+      }
+
+      button.textContent = "Added to Cart ✓";
+      button.style.backgroundColor = "#73c2fb";
+      button.style.borderColor = "#5ca7db";
+
+      setTimeout(() => {
+        button.textContent = "Add to Cart";
+        button.style.backgroundColor = "#ffd814";
+        button.style.borderColor = "#fcd200";
+      }, 1500);
+    });
+  });
+
+  // 3. HEADER INPUT FILTER SELECTION SEARCH
+  const searchInputNode = document.querySelector(".search-input");
+  const searchCardsArray = document.querySelectorAll(".shop-card");
+
+  if (searchInputNode) {
+    searchInputNode.addEventListener("input", () => {
+      const sanitizedTerm = searchInputNode.value.toLowerCase().trim();
+
+      searchCardsArray.forEach((card) => {
+        const structuralText = card.innerText.toLowerCase();
+        if (structuralText.includes(sanitizedTerm)) {
+          card.style.display = "flex";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    });
+  }
+
+  // 4. VERTICAL SCROLL ANCHOR NAVIGATION TRIGGER
+  const executionScrollBtn = document.getElementById("scroll-top-btn");
+  if (executionScrollBtn) {
+    executionScrollBtn.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+  }
+
+  // 5. INJECT LEGAL STAMP DATE STAMP
+  const targetCopyrightElement = document.getElementById("copyright-notice");
+  if (targetCopyrightElement) {
+    const calculatedYear = new Date().getFullYear();
+    targetCopyrightElement.innerHTML = `© 1996–${calculatedYear}, Amazon.com, Inc. or its affiliates`;
+  }
+});
+document.addEventListener("DOMContentLoaded", () => {
+  
+// 1. LIVE SEARCH FILTER (FIXED LAYOUT WRAPPER)
+  const searchInput = document.querySelector(".search-input");
+  const productCards = document.querySelectorAll(".shop-card");
+
+  if (searchInput) {
+    searchInput.addEventListener("input", (e) => {
+      const searchTerm = e.target.value.toLowerCase().trim();
+
+      productCards.forEach((card) => {
+        const cardText = card.innerText.toLowerCase();
+        
+        if (cardText.includes(searchTerm)) {
+          // Re-apply the exact default styles so the image wrappers don't squash
+          card.style.display = "flex";
+          card.style.visibility = "visible";
+          card.style.opacity = "1";
+        } else {
+          // Hide it cleanly without breaking the grid template mapping
+          card.style.display = "none";
+        }
+      });
+    });
+  }
+
+  // 2. DYNAMIC CART INCREMENTOR
+  // Updates the counter in the navbar basket when "Add to Cart" is clicked
+  let internalCartCount = 0;
+  const cartBadge = document.getElementById("cart-count");
+  const addToCartButtons = document.querySelectorAll(".add-to-cart-btn");
+
+  addToCartButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      internalCartCount++;
+      if (cartBadge) {
+        cartBadge.textContent = internalCartCount;
+      }
+
+      // Visual feedback on the button itself
+      button.textContent = "Added ✓";
+      button.style.background = "#73c2fb"; // Temporary blue confirmation highlight
+      button.style.borderColor = "#5ca7db";
+
+      // Reset the button look after 1.2 seconds
+      setTimeout(() => {
+        button.textContent = "Add to Cart";
+        button.style.background = "#ffd814";
+        button.style.borderColor = "#fcd200";
+      }, 1200);
+    });
+  });
+
+  // 3. SEARCH CATEGORY DROPDOWN UPDATER
+  // Changes the invisible native select dropdown text handler safely
+  const dropdownSelect = document.querySelector(".search-dropdown");
+  const dropdownBox = document.querySelector(".search-dropdown-box");
+
+  if (dropdownSelect && dropdownBox) {
+    // Inject a label container inside the box if it doesn't exist
+    const labelSpan = document.createElement("span");
+    labelSpan.textContent = dropdownSelect.value;
+    dropdownBox.insertBefore(labelSpan, dropdownBox.firstChild);
+
+    dropdownSelect.addEventListener("change", (e) => {
+      labelSpan.textContent = e.target.value;
+    });
+  }
 });
