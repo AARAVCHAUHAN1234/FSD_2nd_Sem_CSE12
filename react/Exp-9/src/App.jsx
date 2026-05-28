@@ -1,122 +1,217 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import React, { useState } from "react";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: ""
+  });
+
+  const [errors, setErrors] = useState({});
+  const [success, setSuccess] = useState("");
+  const [registeredUser, setRegisteredUser] = useState(null);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
+
+  const validateForm = () => {
+    let newErrors = {};
+
+    if (formData.name.trim() === "") {
+      newErrors.name = "Name is required";
+    }
+
+    if (!formData.email.includes("@")) {
+      newErrors.email = "Email must contain @";
+    }
+
+    if (formData.password.length < 6) {
+      newErrors.password = "Password must be at least 6 characters";
+    }
+
+    return newErrors;
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const validationErrors = validateForm();
+
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      setSuccess("");
+    } else {
+      setErrors({});
+      setSuccess("Registration Successful!");
+
+      setRegisteredUser(formData);
+
+      setFormData({
+        name: "",
+        email: "",
+        password: ""
+      });
+    }
+  };
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
+    <div
+      style={{
+        minHeight: "100vh",
+        backgroundColor: "#f0f2f5",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        padding: "20px",
+        fontFamily: "Arial"
+      }}
+    >
+      <div
+        style={{
+          width: "400px",
+          backgroundColor: "white",
+          padding: "30px",
+          borderRadius: "10px",
+          boxShadow: "0px 0px 10px rgba(0,0,0,0.2)"
+        }}
+      >
+        <h1
+          style={{
+            textAlign: "center",
+            marginBottom: "20px"
+          }}
         >
-          Count is {count}
-        </button>
-      </section>
+          Registration Form
+        </h1>
 
-      <div className="ticks"></div>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            name="name"
+            placeholder="Enter Name"
+            value={formData.name}
+            onChange={handleChange}
+            style={{
+              width: "100%",
+              padding: "10px",
+              marginBottom: "5px",
+              borderRadius: "5px",
+              border: "1px solid gray"
+            }}
+          />
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+          {errors.name && (
+            <p style={{ color: "red", marginTop: "0px" }}>
+              {errors.name}
+            </p>
+          )}
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+          <input
+            type="email"
+            name="email"
+            placeholder="Enter Email"
+            value={formData.email}
+            onChange={handleChange}
+            style={{
+              width: "100%",
+              padding: "10px",
+              marginTop: "10px",
+              marginBottom: "5px",
+              borderRadius: "5px",
+              border: "1px solid gray"
+            }}
+          />
+
+          {errors.email && (
+            <p style={{ color: "red", marginTop: "0px" }}>
+              {errors.email}
+            </p>
+          )}
+
+          <input
+            type="password"
+            name="password"
+            placeholder="Enter Password"
+            value={formData.password}
+            onChange={handleChange}
+            style={{
+              width: "100%",
+              padding: "10px",
+              marginTop: "10px",
+              marginBottom: "5px",
+              borderRadius: "5px",
+              border: "1px solid gray"
+            }}
+          />
+
+          {errors.password && (
+            <p style={{ color: "red", marginTop: "0px" }}>
+              {errors.password}
+            </p>
+          )}
+
+          <button
+            type="submit"
+            style={{
+              width: "100%",
+              padding: "12px",
+              marginTop: "20px",
+              backgroundColor: "blue",
+              color: "white",
+              border: "none",
+              borderRadius: "5px",
+              cursor: "pointer",
+              fontSize: "16px"
+            }}
+          >
+            Register
+          </button>
+        </form>
+
+        {success && (
+          <p
+            style={{
+              color: "green",
+              textAlign: "center",
+              marginTop: "15px",
+              fontWeight: "bold"
+            }}
+          >
+            {success}
+          </p>
+        )}
+
+        {registeredUser && (
+          <div
+            style={{
+              marginTop: "20px",
+              backgroundColor: "#f4f4f4",
+              padding: "15px",
+              borderRadius: "5px"
+            }}
+          >
+            <h2 style={{ textAlign: "center" }}>
+              Registered User
+            </h2>
+
+            <p>
+              <strong>Name:</strong> {registeredUser.name}
+            </p>
+
+            <p>
+              <strong>Email:</strong> {registeredUser.email}
+            </p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
 }
 
-export default App
+export default App;
