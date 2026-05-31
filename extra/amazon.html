@@ -9,37 +9,60 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="amazon.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 <body>
 
   <header class="navbar">
     <div class="nav-left">
       <div class="nav-logo nav-hover">
-        <a href="#">
+        <a href="https://www.amazon.in/">
           <img src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="Amazon Logo" />
           <span class="logo-geo">.in</span>
         </a>
       </div>
       
-      <div class="nav-delivery nav-hover">
-        <div class="delivery-icon">
-          <i class="fa-solid fa-location-dot"></i>
-        </div>
-        <div class="delivery-text">
-          <span class="nav-line-1">Deliver to Sultanpur</span>
-          <span class="nav-line-2">Update location</span>
-        </div>
-      </div>
+      <div class="nav-delivery nav-hover" id="change-location-btn">
+  <div class="delivery-icon">
+    <i class="fa-solid fa-location-dot"></i>
+  </div>
+
+  <div class="delivery-text">
+    <span class="nav-line-1" id="delivery-location">
+      Deliver to Ghaziabad
+    </span>
+
+    <span class="nav-line-2">
+      Update location
+    </span>
+  </div>
+</div>
     </div>
 
     <div class="nav-fill">
       <div class="search-container">
         <div class="search-dropdown-box">
           <select class="search-dropdown" aria-label="Search department">
-            <option>All Departments</option>
-            <option>Electronics</option>
+            <option>All</option>
+            <option>Alexa Skills</option>
+            <option>Amazon Devices</option>
+            <option>Amazon Fashion</option>
+            <option>Amazon Fresh</option>
+            <option>Amazon Pharmacy</option>
+            <option>Appliances</option>
+            <option>Apps & Games</option>
+            <option>Audible Audiobooks</option>
+            <option>Baby</option>
+            <option>Beauty</option>
             <option>Books</option>
-            <option>Fashion</option>
+            <option>Car & MotorBike</option>
+            <option>Clothing & Accessories</option>
+            <option>Collectibles</option>
+            <option>Computers & Accessories</option>
+            <option>Deals</option>
+            <option>Electronics</option>
+            <option>Furniture</option>
+            <option>Garden & Outdoors</option>
           </select>
           <i class="fa-solid fa-caret-down dropdown-arrow"></i>
         </div>
@@ -49,18 +72,65 @@
         </button>
       </div>
     </div>
+    <div class="nav-language nav-hover" id="language-btn">
+    <img src="https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg" class="flag-icon">
+    <span class="lang-text" id="selected-language">EN</span>
+    <i class="fa-solid fa-caret-down nav-arrow"></i>
+</div>
 
-    <div class="nav-right">
-      <div class="nav-language nav-hover">
-        <img src="https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg" alt="India Flag" class="flag-icon" />
-        <span class="lang-text">EN</span>
+      <div class="nav-account nav-hover">
+
+    <span class="nav-line-1">Hello, sign in</span>
+
+    <span class="nav-line-2">
+        Account & Lists
         <i class="fa-solid fa-caret-down nav-arrow"></i>
-      </div>
+    </span>
 
-      <a href="#" class="nav-link nav-hover">
-        <span class="nav-line-1">Hello, sign in</span>
-        <span class="nav-line-2">Account & Lists <i class="fa-solid fa-caret-down nav-arrow"></i></span>
-      </a>
+    <div class="account-dropdown">
+
+        <div class="signin-section">
+            <button class="signin-main-btn">
+                Sign in
+            </button>
+
+            <p>
+                New customer?
+                <a href="#">Start here.</a>
+            </p>
+        </div>
+
+        <div class="account-content">
+
+            <div class="account-column">
+                <h3>Your Lists</h3>
+
+                <a href="#">Create a Wish List</a>
+                <a href="#">Wish from Any Website</a>
+                <a href="#">Baby Wishlist</a>
+                <a href="#">Discover Your Style</a>
+                <a href="#">Explore Showroom</a>
+            </div>
+
+            <div class="account-column">
+                <h3>Your Account</h3>
+
+                <a href="#">Your Account</a>
+                <a href="#">Your Orders</a>
+                <a href="#">Your Wish List</a>
+                <a href="#">Keep shopping for</a>
+                <a href="#">Your Recommendations</a>
+                <a href="#">Your Prime Membership</a>
+                <a href="#">Your Prime Video</a>
+                <a href="#">Your Seller Account</a>
+                <a href="#">Manage Your Content and Devices</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
 
       <a href="#" class="nav-link nav-hover">
         <span class="nav-line-1">Returns</span>
@@ -90,33 +160,96 @@
       </div>
       <div class="side-content">
         <h3>Trending</h3>
-        <a href="#">Best Sellers</a>
-        <a href="#">New Releases</a>
-        <a href="#">Movers and Shakers</a>
+        <a href="https://www.amazon.in/gp/bestsellers/?ref_=nav_em_cs_bestsellers_0_1_1_2">Best Sellers</a>
+        <a href="https://www.amazon.in/gp/new-releases/?ref_=nav_em_cs_newreleases_0_1_1_3">New Releases</a>
+        
         <hr />
         <h3>Digital Content and Devices</h3>
-        <a href="#">Echo & Alexa</a>
-        <a href="#">Fire TV</a>
-        <a href="#">Kindle E-Readers</a>
+        <a href="https://www.amazon.in/gp/browse.html?node=14156834031&ref_=nav_em__shopall_catpage_0_2_2_2">Echo & Alexa<i class="fa-solid fa-angle-right"></i></a>
+        <a href="https://www.amazon.in/gp/browse.html?node=12805339031&ref_=nav_em__shopall_catpage_0_2_3_4">Fire TV<i class="fa-solid fa-angle-right"></i></a>
+        <a href="https://www.amazon.in/dp/B07FQ4Q7MB?th=1">Kindle E-Readers<i class="fa-solid fa-angle-right"></i></a>
+        <a href="">Audible Audiobooks<i class="fa-solid fa-angle-right"></i></a>
+        <a href="">Amazon Prime Video<i class="fa-solid fa-angle-right"></i></a>
+        <a href="">Amazon Prime Music<i class="fa-solid fa-angle-right"></i></a>
         <hr />
+        
         <h3>Shop by Category</h3>
         <a href="#">Mobiles, Computers</a>
         <a href="#">TV, Electronics</a>
         <a href="#">Men's Fashion</a>
+        <a href="">Women's Fashion</a>
+        <div class="more-categories" style="display:none;">
+
+  <a href="#">Home, Kitchen, Pets <i class="fa-solid fa-angle-right"></i></a>
+
+  <a href="#">Beauty, Health, Grocery <i class="fa-solid fa-angle-right"></i></a>
+
+  <a href="#">Sports, Fitness, Bags, Luggage <i class="fa-solid fa-angle-right"></i></a>
+
+  <a href="#">Toys, Baby Products, Kids' Fashion <i class="fa-solid fa-angle-right"></i></a>
+
+  <a href="#">Car, Motorbike, Industrial <i class="fa-solid fa-angle-right"></i></a>
+
+  <a href="#">Books <i class="fa-solid fa-angle-right"></i></a>
+
+  <a href="#">Movies, Music & Video Games <i class="fa-solid fa-angle-right"></i></a>
+
+</div>
+
+<a href="#" class="see-all-btn">
+  See All
+  <i class="fa-solid fa-angle-down"></i>
+</a>
+<hr>
+<h3>Programs & Features</h3>
+<a href="">Gifts Cards & Mobile Recharges<i class="fa-solid fa-angle-right"></i></a>
+<a href="">Amazon Launchpad</a>
+<A href="">Amazon Business</A>
+<a href="">Handloom and Handicrafts</a>
+<hr>
+<div class="more-categories" style="display:none;">
+
+  <a href="#">Amazon Saheli <i class="fa-solid fa-angle-right"></i></a>
+
+  <a href="#">Amazon Custom<i class="fa-solid fa-angle-right"></i></a>
+
+  <a href="#">Flight Tickets <i class="fa-solid fa-angle-right"></i></a>
+
+  <a href="#">Buy more, Save more<i class="fa-solid fa-angle-right"></i></a>
+
+  <a href="#">Clearance store <i class="fa-solid fa-angle-right"></i></a>
+
+  <a href="#">International Brands <i class="fa-solid fa-angle-right"></i></a>
+</div>
+
+<a href="#" class="see-all-btn">
+  See All
+  <i class="fa-solid fa-angle-down"></i>
+</a>
+<hr>
+<h3>Help & Settings</h3>
+<a href="">Your Account</a>
+<a href="">Customer Service</a>
+<a href="">Sign in</a>
       </div>
     </div>
     <label for="menu-toggle" class="overlay"></label>
 
     <div class="subnav-links">
-      <a href="#" class="nav-hover">Fresh</a>
-      <a href="#" class="nav-hover">MX Player</a>
-      <a href="#" class="nav-hover">Sell</a>
-      <a href="#" class="nav-hover">Best Sellers</a>
-      <a href="#" class="nav-hover">Mobiles</a>
-      <a href="#" class="nav-hover">Today's Deals</a>
-      <a href="#" class="nav-hover">Electronics</a>
-      <a href="#" class="nav-hover">Fashion</a>
-      <a href="#" class="nav-hover">Home & Kitchen</a>
+      <a href="https://www.amazon.in/alm/storefront?almBrandId=ctnow&ref_=nav_cs_fresh" class="nav-hover">Fresh</a>
+      <a href="https://www.amazon.in/minitv?ref_=nav_avod_desktop_topnav" class="nav-hover">MX Player</a>
+      <a href="https://www.amazon.in/b/32702023031?node=32702023031&ld=AZINSOANavDesktop_T3&ref_=nav_cs_sell_T3" class="nav-hover">Sell</a>
+      <a href="https://www.amazon.in/gp/bestsellers/?ref_=nav_cs_bestsellers" class="nav-hover">Best Sellers</a>
+      <a href="https://www.amazon.in/deals?ref_=nav_cs_gb" class="nav-hover">Today's Deals</a>
+      <a href="https://www.amazon.in/mobile-phones/b/?ie=UTF8&node=1389401031&ref_=nav_cs_mobiles" class="nav-hover">Mobiles</a>
+      <a href="https://www.amazon.in/mobile-phones/b/?ie=UTF8&node=1389401031&ref_=nav_cs_mobiles" class="nav-hover">Mobile</a>
+      <a href="https://www.amazon.in/amazonprime?ref_=nav_cs_primelink_nonmember" class="nav-hover">Prime</a>
+      <a href="https://www.amazon.in/gp/new-releases/?ref_=nav_cs_newreleases" class="nav-hover">New Releases</a>
+      <a href="https://www.amazon.in/gp/help/customer/display.html?nodeId=G508510&ref_=nav_cs_help" class="nav-hover">Customer Service</a>
+      <a href="https://www.amazon.in/electronics/b/?ie=UTF8&node=976419031&ref_=nav_cs_electronics" class="nav-hover">Electronics</a>
+      <a href="https://www.amazon.in/amazonpay/home?ref_=nav_cs_apay" class="nav-hover">Amazon Pay</a>
+      <a href="https://www.amazon.in/gp/browse.html?node=6648217031&ref_=nav_cs_fashion" class="nav-hover">Fashion</a>
+      <a href="https://www.amazon.in/Home-Kitchen/b/?ie=UTF8&node=976442031&ref_=nav_cs_home" class="nav-hover">Home & Kitchen</a>
     </div>
   </nav>
 
@@ -124,6 +257,7 @@
     <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=1500&auto=format&fit=crop" alt="Slide 1" />
     <img src="https://images.unsplash.com/photo-1511556532299-8f662fc26c06?q=80&w=1500&auto=format&fit=crop" alt="Slide 2" />
     <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1500&auto=format&fit=crop" alt="Slide 3" />
+    <img src="https://images-eu.ssl-images-amazon.com/images/G/31/INSLGW/pc_unrec_may25_refresh._CB761742379_.jpg" alt="Slide 4" />
   </div>
 
   <main class="main-container">
@@ -223,7 +357,378 @@
           </div>
         </div>
       </div>
+            <div class="shop-card single-product-card">
+        <h2>Deal of the day</h2>
+        <div class="product-wrapper">
+          <div class="img-box">
+            <img src="https://images.unsplash.com/photo-1560343090-f0409e92791a?q=80&w=400&auto=format&fit=crop" alt="Deal Item" />
+          </div>
+          <div class="product-details">
+            <p class="product-desc">Premium Leather Sports Shoes & Outdoor Training Gear Collection</p>
+            <div class="rating-stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star-half-stroke"></i>
+              <span class="rating-count">14,205</span>
+            </div>
+            <div class="price-box">
+              <span class="currency">₹</span>
+              <span class="price-main">1,249</span>
+              <span class="mrp">M.R.P: <span>₹2,499</span></span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+            <div class="shop-card single-product-card">
+        <h2>Deal of the day</h2>
+        <div class="product-wrapper">
+          <div class="img-box">
+            <img src="https://images.unsplash.com/photo-1560343090-f0409e92791a?q=80&w=400&auto=format&fit=crop" alt="Deal Item" />
+          </div>
+          <div class="product-details">
+            <p class="product-desc">Premium Leather Sports Shoes & Outdoor Training Gear Collection</p>
+            <div class="rating-stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star-half-stroke"></i>
+              <span class="rating-count">14,205</span>
+            </div>
+            <div class="price-box">
+              <span class="currency">₹</span>
+              <span class="price-main">1,249</span>
+              <span class="mrp">M.R.P: <span>₹2,499</span></span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <section class="slider-section">
+      <h2>Related to items you've viewed</h2>
+      <div class="recommend-slider">
+        <div class="slide-card"><img src="https://m.media-amazon.com/images/I/61B5hIAmvdL._AC_SY170_.jpghttps://m.media-amazon.com/images/I/61B5hIAmvdL._AC_SY170_.jpg" alt="Item" /></div>
+        <div class="slide-card"><img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=150&auto=format&fit=crop" alt="Item" /></div>
+        <div class="slide-card"><img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?q=80&w=150&auto=format&fit=crop" alt="Item" /></div>
+        <div class="slide-card"><img src="https://images.unsplash.com/photo-1560343090-f0409e92791a?q=80&w=150&auto=format&fit=crop" alt="Item" /></div>
+        <div class="slide-card"><img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=150&auto=format&fit=crop" alt="Item" /></div>
+        <div class="slide-card"><img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?q=80&w=150&auto=format&fit=crop" alt="Item" /></div>
+      </div>
+    </section>
+  </main>
+    <main class="main-container">
+    <section class="shop-section">
+      
+      <div class="shop-card">
+        <h2>Revamp your home in style</h2>
+        <div class="card-grid">
+          <div class="grid-item">
+            <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=300&auto=format&fit=crop" alt="Bedding" />
+            <span>Bedding solutions</span>
+          </div>
+          <div class="grid-item">
+            <img src="https://images.unsplash.com/photo-1581428982868-e410dd047a90?q=80&w=300&auto=format&fit=crop" alt="Furniture" />
+            <span>Chairs & Tables</span>
+          </div>
+          <div class="grid-item">
+            <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=300&auto=format&fit=crop" alt="Decor" />
+            <span>Home Decor</span>
+          </div>
+          <div class="grid-item">
+            <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=300&auto=format&fit=crop" alt="Kitchen" />
+            <span>Kitchen tools</span>
+          </div>
+        </div>
+        <a href="#" class="card-link">Explore all</a>
+      </div>
+
+      <div class="shop-card">
+        <h2>Up to 60% off | Tech Gear</h2>
+        <div class="card-grid">
+          <div class="grid-item">
+            <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?q=80&w=300&auto=format&fit=crop" alt="PCs" />
+            <span>Computers & Laptops</span>
+          </div>
+          <div class="grid-item">
+            <img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?q=80&w=300&auto=format&fit=crop" alt="TVs" />
+            <span>Smart Televisions</span>
+          </div>
+          <div class="grid-item">
+            <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?q=80&w=300&auto=format&fit=crop" alt="Gadgets" />
+            <span>Smartwatches</span>
+          </div>
+          <div class="grid-item">
+            <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=300&auto=format&fit=crop" alt="Mobiles" />
+            <span>Smartphones</span>
+          </div>
+        </div>
+        <a href="#" class="card-link">See all offers</a>
+      </div>
+
+      <div class="shop-card">
+        <h2>Fitness & Outdoors</h2>
+        <div class="card-grid">
+          <div class="grid-item">
+            <img src="https://images.unsplash.com/photo-1483721310020-03333e577078?q=80&w=300&auto=format&fit=crop" alt="Activewear" />
+            <span>Activewear</span>
+          </div>
+          <div class="grid-item">
+            <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=300&auto=format&fit=crop" alt="Gear" />
+            <span>Fitness Gear</span>
+          </div>
+          <div class="grid-item">
+            <img src="https://images.unsplash.com/photo-1614851099175-e5b30eb6f696?q=80&w=300&auto=format&fit=crop" alt="Mats" />
+            <span>Yoga Mats</span>
+          </div>
+          <div class="grid-item">
+            <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=300&auto=format&fit=crop" alt="Apparel" />
+            <span>Clothing</span>
+          </div>
+        </div>
+        <a href="#" class="card-link">See more</a>
+      </div>
+
+      <div class="shop-card single-product-card">
+        <h2>Deal of the day</h2>
+        <div class="product-wrapper">
+          <div class="img-box">
+            <img src="https://images.unsplash.com/photo-1560343090-f0409e92791a?q=80&w=400&auto=format&fit=crop" alt="Deal Item" />
+          </div>
+          <div class="product-details">
+            <p class="product-desc">Premium Leather Sports Shoes & Outdoor Training Gear Collection</p>
+            <div class="rating-stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star-half-stroke"></i>
+              <span class="rating-count">14,205</span>
+            </div>
+            <div class="price-box">
+              <span class="currency">₹</span>
+              <span class="price-main">1,249</span>
+              <span class="mrp">M.R.P: <span>₹2,499</span></span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+            <div class="shop-card single-product-card">
+        <h2>Deal of the day</h2>
+        <div class="product-wrapper">
+          <div class="img-box">
+            <img src="https://images.unsplash.com/photo-1560343090-f0409e92791a?q=80&w=400&auto=format&fit=crop" alt="Deal Item" />
+          </div>
+          <div class="product-details">
+            <p class="product-desc">Premium Leather Sports Shoes & Outdoor Training Gear Collection</p>
+            <div class="rating-stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star-half-stroke"></i>
+              <span class="rating-count">14,205</span>
+            </div>
+            <div class="price-box">
+              <span class="currency">₹</span>
+              <span class="price-main">1,249</span>
+              <span class="mrp">M.R.P: <span>₹2,499</span></span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+            <div class="shop-card single-product-card">
+        <h2>Deal of the day</h2>
+        <div class="product-wrapper">
+          <div class="img-box">
+            <img src="https://images.unsplash.com/photo-1560343090-f0409e92791a?q=80&w=400&auto=format&fit=crop" alt="Deal Item" />
+          </div>
+          <div class="product-details">
+            <p class="product-desc">Premium Leather Sports Shoes & Outdoor Training Gear Collection</p>
+            <div class="rating-stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star-half-stroke"></i>
+              <span class="rating-count">14,205</span>
+            </div>
+            <div class="price-box">
+              <span class="currency">₹</span>
+              <span class="price-main">1,249</span>
+              <span class="mrp">M.R.P: <span>₹2,499</span></span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slider-section">
+      <h2>Related to items you've viewed</h2>
+      <div class="recommend-slider">
+        <div class="slide-card"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=150&auto=format&fit=crop" alt="Item" /></div>
+        <div class="slide-card"><img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=150&auto=format&fit=crop" alt="Item" /></div>
+        <div class="slide-card"><img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?q=80&w=150&auto=format&fit=crop" alt="Item" /></div>
+        <div class="slide-card"><img src="https://images.unsplash.com/photo-1560343090-f0409e92791a?q=80&w=150&auto=format&fit=crop" alt="Item" /></div>
+        <div class="slide-card"><img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=150&auto=format&fit=crop" alt="Item" /></div>
+        <div class="slide-card"><img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?q=80&w=150&auto=format&fit=crop" alt="Item" /></div>
+      </div>
+    </section>
+  </main>
+    <main class="main-container">
+    <section class="shop-section">
+      
+      <div class="shop-card">
+        <h2>Revamp your home in style</h2>
+        <div class="card-grid">
+          <div class="grid-item">
+            <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=300&auto=format&fit=crop" alt="Bedding" />
+            <span>Bedding solutions</span>
+          </div>
+          <div class="grid-item">
+            <img src="https://images.unsplash.com/photo-1581428982868-e410dd047a90?q=80&w=300&auto=format&fit=crop" alt="Furniture" />
+            <span>Chairs & Tables</span>
+          </div>
+          <div class="grid-item">
+            <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=300&auto=format&fit=crop" alt="Decor" />
+            <span>Home Decor</span>
+          </div>
+          <div class="grid-item">
+            <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=300&auto=format&fit=crop" alt="Kitchen" />
+            <span>Kitchen tools</span>
+          </div>
+        </div>
+        <a href="#" class="card-link">Explore all</a>
+      </div>
+
+      <div class="shop-card">
+        <h2>Up to 60% off | Tech Gear</h2>
+        <div class="card-grid">
+          <div class="grid-item">
+            <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?q=80&w=300&auto=format&fit=crop" alt="PCs" />
+            <span>Computers & Laptops</span>
+          </div>
+          <div class="grid-item">
+            <img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?q=80&w=300&auto=format&fit=crop" alt="TVs" />
+            <span>Smart Televisions</span>
+          </div>
+          <div class="grid-item">
+            <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?q=80&w=300&auto=format&fit=crop" alt="Gadgets" />
+            <span>Smartwatches</span>
+          </div>
+          <div class="grid-item">
+            <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=300&auto=format&fit=crop" alt="Mobiles" />
+            <span>Smartphones</span>
+          </div>
+        </div>
+        <a href="#" class="card-link">See all offers</a>
+      </div>
+
+      <div class="shop-card">
+        <h2>Fitness & Outdoors</h2>
+        <div class="card-grid">
+          <div class="grid-item">
+            <img src="https://images.unsplash.com/photo-1483721310020-03333e577078?q=80&w=300&auto=format&fit=crop" alt="Activewear" />
+            <span>Activewear</span>
+          </div>
+          <div class="grid-item">
+            <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=300&auto=format&fit=crop" alt="Gear" />
+            <span>Fitness Gear</span>
+          </div>
+          <div class="grid-item">
+            <img src="https://images.unsplash.com/photo-1614851099175-e5b30eb6f696?q=80&w=300&auto=format&fit=crop" alt="Mats" />
+            <span>Yoga Mats</span>
+          </div>
+          <div class="grid-item">
+            <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=300&auto=format&fit=crop" alt="Apparel" />
+            <span>Clothing</span>
+          </div>
+        </div>
+        <a href="#" class="card-link">See more</a>
+      </div>
+
+      <div class="shop-card single-product-card">
+        <h2>Deal of the day</h2>
+        <div class="product-wrapper">
+          <div class="img-box">
+            <img src="https://images.unsplash.com/photo-1560343090-f0409e92791a?q=80&w=400&auto=format&fit=crop" alt="Deal Item" />
+          </div>
+          <div class="product-details">
+            <p class="product-desc">Premium Leather Sports Shoes & Outdoor Training Gear Collection</p>
+            <div class="rating-stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star-half-stroke"></i>
+              <span class="rating-count">14,205</span>
+            </div>
+            <div class="price-box">
+              <span class="currency">₹</span>
+              <span class="price-main">1,249</span>
+              <span class="mrp">M.R.P: <span>₹2,499</span></span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+            <div class="shop-card single-product-card">
+        <h2>Deal of the day</h2>
+        <div class="product-wrapper">
+          <div class="img-box">
+            <img src="https://images.unsplash.com/photo-1560343090-f0409e92791a?q=80&w=400&auto=format&fit=crop" alt="Deal Item" />
+          </div>
+          <div class="product-details">
+            <p class="product-desc">Premium Leather Sports Shoes & Outdoor Training Gear Collection</p>
+            <div class="rating-stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star-half-stroke"></i>
+              <span class="rating-count">14,205</span>
+            </div>
+            <div class="price-box">
+              <span class="currency">₹</span>
+              <span class="price-main">1,249</span>
+              <span class="mrp">M.R.P: <span>₹2,499</span></span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+            <div class="shop-card single-product-card">
+        <h2>Deal of the day</h2>
+        <div class="product-wrapper">
+          <div class="img-box">
+            <img src="https://images.unsplash.com/photo-1560343090-f0409e92791a?q=80&w=400&auto=format&fit=crop" alt="Deal Item" />
+          </div>
+          <div class="product-details">
+            <p class="product-desc">Premium Leather Sports Shoes & Outdoor Training Gear Collection</p>
+            <div class="rating-stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star-half-stroke"></i>
+              <span class="rating-count">14,205</span>
+            </div>
+            <div class="price-box">
+              <span class="currency">₹</span>
+              <span class="price-main">1,249</span>
+              <span class="mrp">M.R.P: <span>₹2,499</span></span>
+            </div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="slider-section">
@@ -287,5 +792,99 @@
   </footer>
 
   <script src="amazon.js"></script>
+<div id="location-modal" class="location-modal">
+  <div class="location-popup">
+
+    <div class="popup-header">
+      <h2>Choose your location</h2>
+      <span id="close-location" class="close-btn">&times;</span>
+    <button id="close-location" class="close-btn">
+        <!-- <i class="fa-solid fa-xmark"></i> -->
+    </button>
+    </div>
+
+    <div class="popup-content">
+      <p>
+        Select a delivery location to see product availability
+        and delivery options
+      </p>
+
+      <button class="signin-btn">
+        Sign in to see your addresses
+      </button>
+
+      <div class="divider">
+        <span>or enter an Indian pincode</span>
+      </div>
+
+      <div class="location-form">
+        <input
+          type="text"
+          id="location-input"
+          placeholder="Enter Pincode"
+        />
+        <button id="save-location">
+          Apply
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div id="language-modal" class="language-modal">
+    <div class="language-popup">
+
+        <h3>Change Language</h3>
+
+        <label class="lang-option">
+            <input type="radio" name="lang" value="EN" checked>
+            English - EN
+        </label>
+
+        <label class="lang-option">
+            <input type="radio" name="lang" value="HI">
+            हिन्दी - HI
+        </label>
+
+        <label class="lang-option">
+            <input type="radio" name="lang" value="TA">
+            தமிழ் - TA
+        </label>
+
+        <label class="lang-option">
+            <input type="radio" name="lang" value="TE">
+            తెలుగు - TE
+        </label>
+
+        <label class="lang-option">
+            <input type="radio" name="lang" value="KN">
+            ಕನ್ನಡ - KN
+        </label>
+
+        <label class="lang-option">
+            <input type="radio" name="lang" value="ML">
+            മലയാളം - ML
+        </label>
+
+        <label class="lang-option">
+            <input type="radio" name="lang" value="BN">
+            বাংলা - BN
+        </label>
+
+        <label class="lang-option">
+            <input type="radio" name="lang" value="MR">
+            मराठी - MR
+        </label>
+
+        <hr>
+
+        <p class="country-line">
+            🇮🇳 You are shopping on Amazon.in
+        </p>
+
+        <a href="#">Change country/region</a>
+
+    </div>
+</div>
 </body>
 </html>

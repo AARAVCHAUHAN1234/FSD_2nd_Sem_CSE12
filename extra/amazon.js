@@ -1,147 +1,307 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  // 1. BACKDROP IMAGE ROTATION TRANSITIONS
+  /* ==========================
+     LOCATION POPUP
+  ========================== */
+
+  const modal = document.getElementById("location-modal");
+  const openBtn = document.getElementById("change-location-btn");
+  const closeBtn = document.getElementById("close-location");
+  const applyBtn = document.getElementById("save-location");
+  const locationInput = document.getElementById("location-input");
+  const deliveryText = document.getElementById("delivery-location");
+
+  if (openBtn && modal) {
+    openBtn.addEventListener("click", () => {
+      modal.style.display = "flex";
+    });
+  }
+
+  if (closeBtn && modal) {
+    closeBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+  }
+
+  if (modal) {
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  }
+
+  if (applyBtn && locationInput && deliveryText) {
+    applyBtn.addEventListener("click", () => {
+      const location = locationInput.value.trim();
+
+      if (location !== "") {
+        deliveryText.textContent = `Delivering to ${location}`;
+        localStorage.setItem("deliveryLocation", location);
+        modal.style.display = "none";
+        locationInput.value = "";
+      }
+    });
+  }
+
+  const savedLocation = localStorage.getItem("deliveryLocation");
+
+  if (savedLocation && deliveryText) {
+    deliveryText.textContent = `Delivering to ${savedLocation}`;
+  }
+
+  /* ==========================
+     HERO IMAGE SLIDER
+  ========================== */
+
   const backdropImages = document.querySelectorAll(".hero img");
-  let runningBackdropIndex = 0;
+  let currentImage = 0;
 
   if (backdropImages.length > 0) {
+
     function rotateBackdrop() {
-      backdropImages.forEach((image, i) => {
-        image.style.opacity = i === runningBackdropIndex ? "1" : "0";
+      backdropImages.forEach((img, index) => {
+        img.style.opacity = index === currentImage ? "1" : "0";
       });
-      runningBackdropIndex = (runningBackdropIndex + 1) % backdropImages.length;
+
+      currentImage =
+        (currentImage + 1) % backdropImages.length;
     }
+
     rotateBackdrop();
     setInterval(rotateBackdrop, 5000);
   }
 
-  // 2. TRANSACTION RETAIL ITEM METRIC REGISTER
-  let activeCartTotal = 0;
-  const numericCartTarget = document.getElementById("cart-count");
-  const interfacePurchaseButtons = document.querySelectorAll(".add-to-cart-btn");
+  /* ==========================
+     CART FUNCTIONALITY
+  ========================== */
 
-  interfacePurchaseButtons.forEach((button) => {
+  let cartCount = 0;
+
+  const cartBadge = document.getElementById("cart-count");
+  const addToCartButtons =
+    document.querySelectorAll(".add-to-cart-btn");
+
+  addToCartButtons.forEach((button) => {
+
     button.addEventListener("click", () => {
-      activeCartTotal++;
-      if (numericCartTarget) {
-        numericCartTarget.textContent = activeCartTotal;
+
+      cartCount++;
+
+      if (cartBadge) {
+        cartBadge.textContent = cartCount;
       }
 
-      button.textContent = "Added to Cart ✓";
-      button.style.backgroundColor = "#73c2fb";
-      button.style.borderColor = "#5ca7db";
+      button.textContent = "Added ✓";
+      button.style.background = "#73c2fb";
 
       setTimeout(() => {
         button.textContent = "Add to Cart";
-        button.style.backgroundColor = "#ffd814";
-        button.style.borderColor = "#fcd200";
-      }, 1500);
+        button.style.background = "#ffd814";
+      }, 1200);
+
     });
+
   });
 
-  // 3. HEADER INPUT FILTER SELECTION SEARCH
-  const searchInputNode = document.querySelector(".search-input");
-  const searchCardsArray = document.querySelectorAll(".shop-card");
+  /* ==========================
+     SEARCH FILTER
+  ========================== */
 
-  if (searchInputNode) {
-    searchInputNode.addEventListener("input", () => {
-      const sanitizedTerm = searchInputNode.value.toLowerCase().trim();
+  const searchInput =
+    document.querySelector(".search-input");
 
-      searchCardsArray.forEach((card) => {
-        const structuralText = card.innerText.toLowerCase();
-        if (structuralText.includes(sanitizedTerm)) {
+  const cards =
+    document.querySelectorAll(".shop-card");
+
+  if (searchInput) {
+
+    searchInput.addEventListener("input", () => {
+
+      const term =
+        searchInput.value.toLowerCase().trim();
+
+      cards.forEach((card) => {
+
+        const text =
+          card.innerText.toLowerCase();
+
+        if (text.includes(term)) {
           card.style.display = "flex";
         } else {
           card.style.display = "none";
         }
-      });
-    });
-  }
 
-  // 4. VERTICAL SCROLL ANCHOR NAVIGATION TRIGGER
-  const executionScrollBtn = document.getElementById("scroll-top-btn");
-  if (executionScrollBtn) {
-    executionScrollBtn.addEventListener("click", () => {
+      });
+
+    });
+
+  }
+/* LANGUAGE POPUP */
+
+const languageBtn =
+document.getElementById("language-btn");
+
+const languageModal =
+document.getElementById("language-modal");
+
+const languageLabel =
+document.getElementById("selected-language");
+
+if(languageBtn){
+
+    languageBtn.addEventListener("click",()=>{
+
+        languageModal.style.display="flex";
+
+    });
+
+}
+
+languageModal.addEventListener("click",(e)=>{
+
+    if(e.target===languageModal){
+
+        languageModal.style.display="none";
+
+    }
+
+});
+
+document
+.querySelectorAll('input[name="lang"]')
+.forEach(radio=>{
+
+    radio.addEventListener("change",()=>{
+
+        languageLabel.textContent =
+        radio.value;
+
+        localStorage.setItem(
+            "amazonLanguage",
+            radio.value
+        );
+
+        languageModal.style.display =
+        "none";
+
+    });
+
+});
+
+const savedLang =
+localStorage.getItem("amazonLanguage");
+
+if(savedLang){
+
+    languageLabel.textContent =
+    savedLang;
+
+    const selected =
+    document.querySelector(
+      `input[value="${savedLang}"]`
+    );
+
+    if(selected){
+        selected.checked = true;
+    }
+}
+/* ==========================
+   SEE ALL / SEE LESS
+========================== */
+
+document.querySelectorAll(".see-all-btn").forEach(button => {
+
+    button.addEventListener("click", function (e) {
+
+        e.preventDefault();
+
+        const content = this.previousElementSibling;
+
+        const isHidden =
+            content.style.display === "none" ||
+            content.style.display === "";
+
+        if (isHidden) {
+
+            content.style.display = "block";
+
+            this.innerHTML =
+                'See Less <i class="fa-solid fa-angle-up"></i>';
+
+        } else {
+
+            content.style.display = "none";
+
+            this.innerHTML =
+                'See All <i class="fa-solid fa-angle-down"></i>';
+
+        }
+
+    });
+
+});
+
+  /* ==========================
+     SCROLL TO TOP
+  ========================== */
+
+  const scrollTopBtn =
+    document.getElementById("scroll-top-btn");
+
+  if (scrollTopBtn) {
+
+    scrollTopBtn.addEventListener("click", () => {
+
       window.scrollTo({
         top: 0,
         behavior: "smooth"
       });
+
     });
+
   }
 
-  // 5. INJECT LEGAL STAMP DATE STAMP
-  const targetCopyrightElement = document.getElementById("copyright-notice");
-  if (targetCopyrightElement) {
-    const calculatedYear = new Date().getFullYear();
-    targetCopyrightElement.innerHTML = `© 1996–${calculatedYear}, Amazon.com, Inc. or its affiliates`;
-  }
-});
-document.addEventListener("DOMContentLoaded", () => {
-  
-// 1. LIVE SEARCH FILTER (FIXED LAYOUT WRAPPER)
-  const searchInput = document.querySelector(".search-input");
-  const productCards = document.querySelectorAll(".shop-card");
+  /* ==========================
+     COPYRIGHT YEAR
+  ========================== */
 
-  if (searchInput) {
-    searchInput.addEventListener("input", (e) => {
-      const searchTerm = e.target.value.toLowerCase().trim();
+  const copyright =
+    document.getElementById("copyright-notice");
 
-      productCards.forEach((card) => {
-        const cardText = card.innerText.toLowerCase();
-        
-        if (cardText.includes(searchTerm)) {
-          // Re-apply the exact default styles so the image wrappers don't squash
-          card.style.display = "flex";
-          card.style.visibility = "visible";
-          card.style.opacity = "1";
-        } else {
-          // Hide it cleanly without breaking the grid template mapping
-          card.style.display = "none";
-        }
-      });
-    });
+  if (copyright) {
+
+    copyright.innerHTML =
+      `© 1996–${new Date().getFullYear()}, Amazon.com, Inc. or its affiliates`;
+
   }
 
-  // 2. DYNAMIC CART INCREMENTOR
-  // Updates the counter in the navbar basket when "Add to Cart" is clicked
-  let internalCartCount = 0;
-  const cartBadge = document.getElementById("cart-count");
-  const addToCartButtons = document.querySelectorAll(".add-to-cart-btn");
+  /* ==========================
+     SEARCH DROPDOWN LABEL
+  ========================== */
 
-  addToCartButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      internalCartCount++;
-      if (cartBadge) {
-        cartBadge.textContent = internalCartCount;
-      }
+  const dropdown =
+    document.querySelector(".search-dropdown");
 
-      // Visual feedback on the button itself
-      button.textContent = "Added ✓";
-      button.style.background = "#73c2fb"; // Temporary blue confirmation highlight
-      button.style.borderColor = "#5ca7db";
+  const dropdownBox =
+    document.querySelector(".search-dropdown-box");
 
-      // Reset the button look after 1.2 seconds
-      setTimeout(() => {
-        button.textContent = "Add to Cart";
-        button.style.background = "#ffd814";
-        button.style.borderColor = "#fcd200";
-      }, 1200);
+  if (dropdown && dropdownBox) {
+
+    const label =
+      document.createElement("span");
+
+    label.textContent = dropdown.value;
+
+    dropdownBox.insertBefore(
+      label,
+      dropdownBox.firstChild
+    );
+
+    dropdown.addEventListener("change", () => {
+      label.textContent = dropdown.value;
     });
-  });
 
-  // 3. SEARCH CATEGORY DROPDOWN UPDATER
-  // Changes the invisible native select dropdown text handler safely
-  const dropdownSelect = document.querySelector(".search-dropdown");
-  const dropdownBox = document.querySelector(".search-dropdown-box");
-
-  if (dropdownSelect && dropdownBox) {
-    // Inject a label container inside the box if it doesn't exist
-    const labelSpan = document.createElement("span");
-    labelSpan.textContent = dropdownSelect.value;
-    dropdownBox.insertBefore(labelSpan, dropdownBox.firstChild);
-
-    dropdownSelect.addEventListener("change", (e) => {
-      labelSpan.textContent = e.target.value;
-    });
   }
+
 });
