@@ -1,9 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* ==========================
-     LOCATION POPUP
-  ========================== */
-
   const modal = document.getElementById("location-modal");
   const openBtn = document.getElementById("change-location-btn");
   const closeBtn = document.getElementById("close-location");
@@ -50,10 +46,6 @@ document.addEventListener("DOMContentLoaded", () => {
     deliveryText.textContent = `Delivering to ${savedLocation}`;
   }
 
-  /* ==========================
-     HERO IMAGE SLIDER
-  ========================== */
-
   const backdropImages = document.querySelectorAll(".hero img");
   let currentImage = 0;
 
@@ -64,23 +56,17 @@ document.addEventListener("DOMContentLoaded", () => {
         img.style.opacity = index === currentImage ? "1" : "0";
       });
 
-      currentImage =
-        (currentImage + 1) % backdropImages.length;
+      currentImage = (currentImage + 1) % backdropImages.length;
     }
 
     rotateBackdrop();
     setInterval(rotateBackdrop, 5000);
   }
 
-  /* ==========================
-     CART FUNCTIONALITY
-  ========================== */
-
   let cartCount = 0;
 
   const cartBadge = document.getElementById("cart-count");
-  const addToCartButtons =
-    document.querySelectorAll(".add-to-cart-btn");
+  const addToCartButtons = document.querySelectorAll(".add-to-cart-btn");
 
   addToCartButtons.forEach((button) => {
 
@@ -104,27 +90,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   });
 
-  /* ==========================
-     SEARCH FILTER
-  ========================== */
-
-  const searchInput =
-    document.querySelector(".search-input");
-
-  const cards =
-    document.querySelectorAll(".shop-card");
+  const searchInput = document.querySelector(".search-input");
+  const cards = document.querySelectorAll(".shop-card");
 
   if (searchInput) {
 
     searchInput.addEventListener("input", () => {
 
-      const term =
-        searchInput.value.toLowerCase().trim();
+      const term = searchInput.value.toLowerCase().trim();
 
       cards.forEach((card) => {
 
-        const text =
-          card.innerText.toLowerCase();
+        const text = card.innerText.toLowerCase();
 
         if (text.includes(term)) {
           card.style.display = "flex";
@@ -137,117 +114,114 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
   }
-/* LANGUAGE POPUP */
 
-const languageBtn =
-document.getElementById("language-btn");
+  const languageBtn = document.getElementById("language-btn");
+  const languageModal = document.getElementById("language-modal");
+  const languageLabel = document.getElementById("selected-language");
 
-const languageModal =
-document.getElementById("language-modal");
+  if (languageBtn) {
 
-const languageLabel =
-document.getElementById("selected-language");
+    languageBtn.addEventListener("click", () => {
 
-if(languageBtn){
-
-    languageBtn.addEventListener("click",()=>{
-
-        languageModal.style.display="flex";
+      languageModal.style.display = "flex";
 
     });
 
-}
+  }
 
-languageModal.addEventListener("click",(e)=>{
+  languageModal.addEventListener("click", (e) => {
 
-    if(e.target===languageModal){
+    if (e.target === languageModal) {
 
-        languageModal.style.display="none";
+      languageModal.style.display = "none";
 
     }
 
-});
+  });
 
-document
-.querySelectorAll('input[name="lang"]')
-.forEach(radio=>{
+  document
+    .querySelectorAll('input[name="lang"]')
+    .forEach(radio => {
 
-    radio.addEventListener("change",()=>{
+      radio.addEventListener("change", () => {
 
-        languageLabel.textContent =
-        radio.value;
+        languageLabel.textContent = radio.value;
 
         localStorage.setItem(
-            "amazonLanguage",
-            radio.value
+          "amazonLanguage",
+          radio.value
         );
 
-        languageModal.style.display =
-        "none";
+        languageModal.style.display = "none";
+
+      });
 
     });
 
-});
+  const savedLang = localStorage.getItem("amazonLanguage");
 
-const savedLang =
-localStorage.getItem("amazonLanguage");
+  if (savedLang) {
 
-if(savedLang){
+    languageLabel.textContent = savedLang;
 
-    languageLabel.textContent =
-    savedLang;
-
-    const selected =
-    document.querySelector(
+    const selected = document.querySelector(
       `input[value="${savedLang}"]`
     );
 
-    if(selected){
-        selected.checked = true;
+    if (selected) {
+      selected.checked = true;
     }
-}
-/* ==========================
-   SEE ALL / SEE LESS
-========================== */
+  }
 
-document.querySelectorAll(".see-all-btn").forEach(button => {
+  const track = document.querySelector(".carousel-track");
+
+  document.querySelector(".next").addEventListener("click", () => {
+    track.scrollBy({
+      left: 800,
+      behavior: "smooth"
+    });
+  });
+
+  document.querySelector(".prev").addEventListener("click", () => {
+    track.scrollBy({
+      left: -800,
+      behavior: "smooth"
+    });
+  });
+
+  document.querySelectorAll(".see-all-btn").forEach(button => {
 
     button.addEventListener("click", function (e) {
 
-        e.preventDefault();
+      e.preventDefault();
 
-        const content = this.previousElementSibling;
+      const content = this.previousElementSibling;
 
-        const isHidden =
-            content.style.display === "none" ||
-            content.style.display === "";
+      const isHidden =
+        content.style.display === "none" ||
+        content.style.display === "";
 
-        if (isHidden) {
+      if (isHidden) {
 
-            content.style.display = "block";
+        content.style.display = "block";
 
-            this.innerHTML =
-                'See Less <i class="fa-solid fa-angle-up"></i>';
+        this.innerHTML =
+          'See Less <i class="fa-solid fa-angle-up"></i>';
 
-        } else {
+      } else {
 
-            content.style.display = "none";
+        content.style.display = "none";
 
-            this.innerHTML =
-                'See All <i class="fa-solid fa-angle-down"></i>';
+        this.innerHTML =
+          'See All <i class="fa-solid fa-angle-down"></i>';
 
-        }
+      }
 
     });
 
-});
+  });
 
-  /* ==========================
-     SCROLL TO TOP
-  ========================== */
-
-  const scrollTopBtn =
-    document.getElementById("scroll-top-btn");
+  const scrollTopBtn = document.getElementById("scroll-top-btn");
 
   if (scrollTopBtn) {
 
@@ -262,10 +236,6 @@ document.querySelectorAll(".see-all-btn").forEach(button => {
 
   }
 
-  /* ==========================
-     COPYRIGHT YEAR
-  ========================== */
-
   const copyright =
     document.getElementById("copyright-notice");
 
@@ -275,10 +245,6 @@ document.querySelectorAll(".see-all-btn").forEach(button => {
       `© 1996–${new Date().getFullYear()}, Amazon.com, Inc. or its affiliates`;
 
   }
-
-  /* ==========================
-     SEARCH DROPDOWN LABEL
-  ========================== */
 
   const dropdown =
     document.querySelector(".search-dropdown");
